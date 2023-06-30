@@ -16,7 +16,6 @@ console.log(pessoa2);
 let listaFrutas: [string, ...string[]] = ['🍍', '🍊', '🍎', '🍉', '🥭'];
 console.log(listaFrutas);
 
-
 //==> Exemplo 05 - Lista Heterogênea de Tupla:
 let listaFrutas2: [number, boolean, ...string[]] = [5, true, ...listaFrutas];
 console.log(listaFrutas2);
@@ -39,5 +38,6 @@ type Nome =
 function criarPessoa(...nome: Nome) {
     return [...nome]
 }
+
 console.log(criarPessoa('Carlos', 'Batista'));
 console.log(criarPessoa('Carlos', 'Alexandre', 'Batista'));
