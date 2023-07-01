@@ -66,4 +66,4 @@ const concluidaTarefa = {
 
 if(concluidaTarefa.status === Tarefa.Done){
     console.log(`Enviar e-mail: ${concluidaTarefa.descricao}`);
-}
+};
