@@ -58,11 +58,92 @@ function onBoarding04(pessoa: Pessoa04) {
 console.log(onBoarding04({nome: 'Carlos', funcao: 'Programador', linguagem: 'Java'}));
 
 // ==> Exemplo 06 -> Propriedade 'readonly' (se deseja proibir que os devs não modifiquem um determinado objeto use o 'readonly)
+interface Pessoa05 {
+    nome: string;
+    funcao: string;
+    linguagem: string;
+    readonly email: string;
+};
+
+
+function onBoarding05(pessoa: Pessoa05) {
+    return `Seja bem vindo(a) ${pessoa.nome}, sua função é ${pessoa.funcao} com ${pessoa.linguagem}! \nVerifique seu e-mail: ${pessoa.email}`;
+};
+
+console.log(onBoarding05(
+    {
+        nome: 'Carlos', 
+        funcao: 'Programador', 
+        linguagem: 'Java',
+        email: 'carlosalexandredev@contato.com'
+    }
+));
 
 // ==> Exemplo 07 -> tipos de extensões (heranças)
+interface Mae {
+    nome: string
+}
+
+interface Pai {
+    sobrenome: string
+}
+interface Filho extends Mae, Pai {
+    idade: number;
+}
+
+const filha: Filho = {
+    nome: 'Carlos',
+    sobrenome: 'Alexandre',
+    idade: 22
+};
+
+console.log(filha);
   
 // ==> Exemplo 08 -> Tipos de Interseções
+type Animal = Cachorro & Gato;
+
+interface Cachorro {
+    tipo: string;
+}
+
+interface Gato {
+    tipo: string;
+}
   
 // Exemplo 09 -> Generic Objects
+type Usuario = {
+    nome: string;
+    email: string;
+}
 
-  
+type Admin = {
+    nome: string;
+    email: string;
+    admin: boolean;
+}
+
+const usuario: Usuario = { 
+    nome:  'Carlos Alexandre',
+    email: 'carlosalexandredev@contato.com'
+}
+
+const admin: Admin = { 
+    nome:  'Carlos Alexandre',
+    email: 'carlosalexandredev@contato.com',
+    admin: true
+}
+
+function acessarSistema<T>(usuario: T): T {
+    return usuario;
+}
+
+console.log(acessarSistema<Usuario>(usuario))
+console.log(acessarSistema<Admin>(admin))
+
+/*
+function acessarSistema(usuario: Usuario): Usuario {
+    return usuario;
+}
+
+console.log(acessarSistema(usuario))
+*/
